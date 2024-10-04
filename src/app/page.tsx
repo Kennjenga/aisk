@@ -54,7 +54,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center space-x-4">
           <Link
-            href="https://google.com"
+            href="/https://google.com"
             className="flex items-center rounded-lg bg-white/20 px-4 py-2 transition-colors hover:bg-white/30"
           >
             <Globe className="mr-2 h-5 w-5" />
