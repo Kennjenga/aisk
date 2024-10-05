@@ -32,7 +32,7 @@ const Page = async ({ params }: PageProps) => {
   );
 
   const initialMessages = await ragChat.history.getMessages({
-    amount: 10,
+    amount: 6,
     sessionId,
   });
 
