@@ -16,7 +16,11 @@ export default function Home() {
       const parsedUrl = urlInput; //.replace("https://", ""); // Remove "https://"
       router.push(`/${parsedUrl}`); // Navigate to the new route
     } else {
-      alert("Please enter a valid URL that starts with https://");
+      const parsedUrl = urlInput;
+      router.push(`/${parsedUrl}`);
+      alert(
+        "Please enter a valid URL that starts with https:// or ensure route is safe"
+      );
     }
   };
 

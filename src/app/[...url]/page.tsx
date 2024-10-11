@@ -14,7 +14,12 @@ function reconstructUrl({ url }: { url: string[] }) {
     decodeURIComponent(component)
   );
 
-  return decodedComponents.join("//");
+  // Handle the protocol separately (first component is 'https:' or 'http:')
+  const protocol = decodedComponents[0]; // e.g., 'https:'
+  const restOfUrl = decodedComponents.slice(1).join("/"); // Join the remaining parts with a single '/'
+
+  // Return the correctly reconstructed URL with the 'https://' or 'http://'
+  return `${protocol}//${restOfUrl}`;
 }
 
 const Page = async ({ params }: PageProps) => {
@@ -35,6 +40,7 @@ const Page = async ({ params }: PageProps) => {
     amount: 6,
     sessionId,
   });
+  console.log(reconstructedUrl);
 
   if (!isAlreadyIndexed) {
     await ragChat.context.add({
